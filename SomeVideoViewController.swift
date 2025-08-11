@@ -42,7 +42,7 @@ class SomeVideoViewController: UIViewController {
             videoView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
 
-        let audioURL = URL(string: "some audio link")!
+        let audioURL = URL(string: "some audio/video link")!
         audioDownloadTask = downloadAudioFile(from: audioURL) { [weak self] localURL in
             guard let self = self, let localURL = localURL else { return }
             let analyzer = AudioHapticAnalyzer()
@@ -257,7 +257,7 @@ final class VideoView: UIView {
         } catch {
             print("Error configuring AVAudioSession: \(error)")
         }
-        let urlString = "some view link"
+        let urlString = "some video link"
         guard let url = URL(string: urlString) else { return }
         let item = AVPlayerItem(url: url)
         player.replaceCurrentItem(with: item)
